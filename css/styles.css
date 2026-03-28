@@ -1,0 +1,41 @@
+.glassmorphic-background {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.neon-text {
+    color: #00ffcc;
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #ff00ff, 0 0 20px #ff00ff;
+}
+
+.button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .glassmorphic-background {
+        padding: 15px;
+    }
+}
+
+@media (min-width: 769px) {
+    .glassmorphic-background {
+        padding: 30px;
+    }
+}
