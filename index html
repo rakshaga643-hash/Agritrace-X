@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AgriTrace X - Smart Farm Intelligence System</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <h1 class="logo">🌾 AgriTrace X</h1>
+                <p class="tagline">Decentralized Farm Intelligence Network</p>
+            </div>
+            <div class="status-indicator">
+                <span class="live-dot"></span>
+                <span>LIVE MONITORING</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+        <!-- LEFT SIDEBAR - DATA INPUT & CONTROLS -->
+        <aside class="sidebar">
+            <!-- SCAN PANEL -->
+            <div class="panel scan-panel glass-effect">
+                <h2 class="panel-title">🎯 FIELD SCANNER</h2>
+                <div class="input-group">
+                    <label for="moisture">Soil Moisture</label>
+                    <input type="range" id="moisture" min="0" max="100" value="50" class="slider">
+                    <span class="value-display" id="moistureValue">50%</span>
+                </div>
+                <div class="input-group">
+                    <label for="light">Light Level</label>
+                    <input type="range" id="light" min="0" max="100" value="50" class="slider">
+                    <span class="value-display" id="lightValue">50%</span>
+                </div>
+                <div class="input-group">
+                    <label for="temp">Temperature</label>
+                    <input type="number" id="temp" min="0" max="50" value="25" class="input-field">
+                    <span class="unit">°C</span>
+                </div>
+                <button id="scanBtn" class="btn btn-primary btn-large">🔍 SCAN FIELD</button>
+                <button id="simulateBtn" class="btn btn-secondary">⚡ SIMULATE CLUSTER</button>
+            </div>
+
+            <!-- STATUS DASHBOARD -->
+            <div class="panel dashboard-panel glass-effect">
+                <h2 class="panel-title">📊 STATUS DASHBOARD</h2>
+                <div class="stat-item">
+                    <span class="stat-label">Total Scans</span>
+                    <span class="stat-value" id="totalScans">0</span>
+                </div>
+                <div class="stat-item green">
+                    <span class="stat-label">🟢 Healthy</span>
+                    <span class="stat-value" id="healthyCount">0</span>
+                </div>
+                <div class="stat-item yellow">
+                    <span class="stat-label">🟡 Risk</span>
+                    <span class="stat-value" id="riskCount">0</span>
+                </div>
+                <div class="stat-item red">
+                    <span class="stat-label">🔴 Critical</span>
+                    <span class="stat-value" id="criticalCount">0</span>
+                </div>
+            </div>
+
+            <!-- SCAN HISTORY -->
+            <div class="panel history-panel glass-effect">
+                <h2 class="panel-title">📜 SCAN HISTORY</h2>
+                <div class="history-list" id="historyList">
+                    <p class="empty-state">No scans yet...</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CENTER - MAP -->
+        <main class="main-content">
+            <div class="map-container glass-effect">
+                <div id="map" class="map"></div>
+            </div>
+        </main>
+
+        <!-- RIGHT SIDEBAR - ALERTS -->
+        <aside class="sidebar sidebar-right">
+            <!-- ALERTS PANEL -->
+            <div class="panel alerts-panel glass-effect">
+                <h2 class="panel-title">⚠️ ALERTS</h2>
+                <div class="alerts-container" id="alertsContainer">
+                    <p class="empty-state">All systems normal</p>
+                </div>
+            </div>
+
+            <!-- MARKER STATS -->
+            <div class="panel markers-panel glass-effect">
+                <h2 class="panel-title">📍 MARKERS</h2>
+                <div class="markers-list" id="markersList">
+                    <p class="empty-state">No markers added...</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- ALERT BANNER (TOP) -->
+    <div id="alertBanner" class="alert-banner" style="display: none;">
+        <div class="alert-content">
+            <span class="alert-icon">🚨</span>
+            <span class="alert-text">Regional Stress Detected!</span>
+            <button class="alert-close" onclick="closeAlertBanner()">✕</button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="js/sensors.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/alerts.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
